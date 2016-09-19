@@ -35,6 +35,13 @@ The whole project is done on eclipse platform(C/C++ perspective).
 
 It is also tested on linux terminal.
 
+For execution:
+ You can simple build or run on eclipse platform or 
+ on terminal by compiling as:
+ 
+ g++ main.cpp
+ ./a.out
+
 ##PROJECT CONTRIBUTORS:
 1.[Mandeep Singh](https://github.com/msdeep14) -> mandeepsinghshekhawat95@gmail.com 
 
