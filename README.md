@@ -17,20 +17,21 @@ It stores the data on physical disk using files.
 Features of our system include:
 
 ####1. Custom Blocks for each table:
-The data is stored in blocks to avoid waste space and easy retrieval. All the separate rows data is stored in different file creating blocks of data. System reads as well as writes data back to files in blocks.
+The data is stored in blocks to avoid waste space and easy retrieval. All the separate row data of a particular table is stored in different file creating blocks of data. System reads as well as writes data back to files in blocks.
 
 ####2. B+ Tree Indexing:
-A separate multilevel B+ tree is created for each table. Each node contains maximum of 50 entries. Right now data storage  is based only on primary key, primary key may be INTEGER or VARCHAR. The indexing reduces the overall search complexity of system.
+A separate multilevel B+ tree is created for each table. Each node contains maximum of 50 entries. Right now data storage  is based only on primary key, primary key can be INTEGER or VARCHAR.
 
 ####3. Storing Meta Data of Tables:
  Meta Data of the tables are stored separately which provides quick access to several information like current number of records, table name, etc.
  
 ####4. B+ Tree Indexed Search:
  For searching a record in file for particular table, B+ tree indexed search is implemented. Search is only based on primary key right now.
+ The indexing reduces the overall search complexity of system.
  Our System also calculates the time taken by the search algorithm.
  
 ##DEVELOPMENT:
-The whole project is done on eclipse platform(c/c++ perspective).
+The whole project is done on eclipse platform(C/C++ perspective).
 
 It is also tested on linux terminal.
 
