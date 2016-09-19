@@ -30,13 +30,12 @@ A separate multilevel B+ tree is created for each table. Each node contains maxi
  Our System also calculates the time taken by the search algorithm.
  
 ##DEVELOPMENT:
-The whole project project is done on eclipse platform(c/c++ perspective).
+The whole project is done on eclipse platform(c/c++ perspective).
 
 It is also tested on linux terminal.
 
 ##PROJECT CONTRIBUTORS:
 1.[Mandeep Singh](https://github.com/msdeep14) -> mandeepsinghshekhawat95@gmail.com 
 
-2.[Pawan Sheoran](https://github.com/pawan_231)-> psheoran231@gmail.com
+2.[Pawan Sheoran](https://github.com/pawan231)-> psheoran231@gmail.com
 
-~ aka deepvoid
