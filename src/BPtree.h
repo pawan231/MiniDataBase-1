@@ -237,20 +237,7 @@ class BPtree
         free(str);
     }
 
-    /* Function that loads Meta-Data of a table before
-       inserting a record */
-    /*void load_meta_data()
-    {
-        char *str;
-        str = (char *) malloc(sizeof(char) * BPTREE_MAX_FILE_PATH_SIZE);
-        sprintf(str, "table/%s/tree/meta_tree.dat", tablename.c_str());
-        std::ifstream in_file(str, std::ofstream::out | std::ofstream::trunc
-                                                | std::ofstream::binary );
-        in_file >> files_till_now >> root_num;
-        in_file.close();
-        free(str);
-    }*/
-
+   
 
   public:
     BPtree();
@@ -401,6 +388,7 @@ BPtree::insert_record(int primary_key, int record_num)
     }
 
     //Here n is Leaf Node
+    //if key exist exist then return;
     if (n.search_key(primary_key))  //key exist
     {
         return BPTREE_INSERT_ERROR_EXIST;
@@ -484,43 +472,3 @@ BPtree::insert_record(int primary_key, int record_num)
     update_meta_data();
     return BPTREE_INSERT_SUCCESS;
 }
-/*
-int main()
-{
-    BPtree mytree("sample_table");
-
-    std::vector < int >a;
-    a.push_back(8);
-    a.push_back(5);
-    a.push_back(1);
-    a.push_back(7);
-    a.push_back(3);
-    a.push_back(12);
-    a.push_back(9);
-    a.push_back(6);
-    for (int i = 0; i < a.size(); i++)
-    {
-        printf("\n\n\n\nAttempting to insert (%d,%d) \n", a[i], i);
-        fflush(stdout);
-        int ret = mytree.insert_record(a[i], i);
-        if (ret == BPTREE_INSERT_SUCCESS)
-            printf("Inserted (%d-%d) Successfully !!\n", a[i], i),
-                fflush(stdout);
-        else if (ret == BPTREE_INSERT_ERROR_EXIST)
-            printf("Inserted (%d-%d) Record Already Exist !!\n", a[i], i),
-                fflush(stdout);
-    }
-
-    for (int i = 0; i < a.size(); i++)
-    {
-        int ret = mytree.get_record(a[i]);
-        if (ret == BPTREE_SEARCH_NOT_FOUND)
-        {
-            printf("\nSearching (%d) -> NOT FOUND !!", a[i]);
-        }
-        else
-            printf("\nSearching (%d) -> record num = %d", a[i], ret);
-    }
-    return 0;
-}
-*/
