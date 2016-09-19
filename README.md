@@ -36,10 +36,12 @@ The whole project is done on eclipse platform(C/C++ perspective).
 It is also tested on linux terminal.
 
 For execution:
- You can simple build or run on eclipse platform or 
- on terminal by compiling as:
+ You can simple build and run on eclipse platform or 
+ 
+ on terminal by executing following commands:
  
  g++ main.cpp
+ 
  ./a.out
 
 ##PROJECT CONTRIBUTORS:
