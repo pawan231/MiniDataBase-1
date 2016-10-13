@@ -10,13 +10,13 @@ Data Storage and Retrieval using B+ Tree Indexing with a touch of mini Database 
 6. DROP Table
 
 
-##SYSTEM DESIGN
+## SYSTEM DESIGN
 The Database System is designed using C++ and C combined features.
 It stores the data on physical disk using files.
 
 Features of system include:
 
-####1. Custom Blocks for each table:
+#### 1. Custom Blocks for each table:
 The data is stored in blocks.  
 
 Benefits of blocking:
@@ -29,13 +29,13 @@ All the separate row data of a particular table is stored in different file crea
 
 More description about blocks [here](https://en.wikipedia.org/wiki/Block_(data_storage))
 
-####2. B+ Tree Indexing:
+#### 2. B+ Tree Indexing:
 A separate multilevel B+ tree is created for each table. Each node contains maximum of 50 entries. Right now data storage  is based only on primary key, primary key can be INTEGER or VARCHAR.
 
-####3. Storing Meta Data of Tables:
+#### 3. Storing Meta Data of Tables:
  Meta Data of the tables are stored separately which provides quick access to several information like current number of records, table name, etc.
  
-####4. B+ Tree Indexed Search:
+#### 4. B+ Tree Indexed Search:
  For searching a record in file for particular table, B+ tree indexed search is implemented. Search is only based on primary  key right now.
  
  Advantages of B+ Tree Indexing:
@@ -47,7 +47,7 @@ A separate multilevel B+ tree is created for each table. Each node contains maxi
  
  System also calculates the time taken by the search algorithm.
  
-##DEVELOPMENT:
+## DEVELOPMENT:
 The whole project is done on eclipse platform(C/C++ perspective).
 
 It is also tested on linux terminal.
@@ -61,14 +61,14 @@ For execution:
  
  ./a.out
  
- ##REFERENCES:
+ ## REFERENCES:
  Database Management Systems CHAPTER 9 [link here](https://drive.google.com/file/d/0B_UNhB7shKrMa2RTUFFaNkdjQWM/view?pli=1)
  
  Author: Raghu Ramakrishnan
  
  
 
-##PROJECT CONTRIBUTORS:
+## PROJECT CONTRIBUTORS:
 1.[Mandeep Singh](https://github.com/msdeep14) -> mandeepsinghshekhawat95@gmail.com ;; [msdeep14](http://msdeep14.github.io/)
 
 2.[Pawan Sheoran](https://github.com/pawan231)-> psheoran231@gmail.com
