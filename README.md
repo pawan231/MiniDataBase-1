@@ -45,7 +45,7 @@ A separate multilevel B+ tree is created for each table. Each node contains maxi
  3. Since it is a balance tree structure, any insert/ delete/ update does not affect the performance.
  4. Since we have all the data stored in the leaf nodes and more branching of internal nodes makes height of the tree shorter. This reduces disk I/O. Hence it works well in secondary storage devices.
  
- System also calculates the time taken by the search algorithm.
+System also calculates the time taken by the search algorithm.
  
 ## DEVELOPMENT:
 The whole project is done on eclipse platform(C/C++ perspective).
@@ -61,7 +61,7 @@ For execution:
  
  ./a.out
  
- ## REFERENCES:
+## REFERENCES:
  Database Management Systems CHAPTER 9 [link here](https://drive.google.com/file/d/0B_UNhB7shKrMa2RTUFFaNkdjQWM/view?pli=1)
  
  Author: Raghu Ramakrishnan
