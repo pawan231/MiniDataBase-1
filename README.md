@@ -66,7 +66,7 @@ For execution:
  
  Author: Raghu Ramakrishnan
 
-Project idea - [link](https://github.com/Bug-Assassins/DFC_query_builder)
+ [stackoverflow](www.stackoverflow.com)
  
  
 
