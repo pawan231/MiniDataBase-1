@@ -57,6 +57,7 @@ For execution:
  
  on terminal by executing following commands:
  
+ ->if you running this program using terminal, you need to move folder "table" to "src".d
  g++ main.cpp
  
  ./a.out
