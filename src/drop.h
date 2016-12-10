@@ -15,10 +15,9 @@ void drop(){
 	else if(check==1){
 		sprintf(temp, "rm -R ./table/%s", tab);
 		system(temp);
+		//copy all the table names to new temp excluding given table to delete;
 		sprintf(temp, "grep -v \"%s\" ./table/table_list > ./table/temp ; mv ./table/temp ./table/table_list", tab);
         system(temp);
         printf("%s deleted\n\n",temp1);
 	}
-	//free(tab);
-	//free(temp);
 }
