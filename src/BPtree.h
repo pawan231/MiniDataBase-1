@@ -237,7 +237,7 @@ class BPtree
         free(str);
     }
 
-   
+
 
   public:
     BPtree();
@@ -356,8 +356,8 @@ BPtree::get_record(int primary_key)
 
 /* A function the inserts a (key, record_num) pair in the
     B+ Tree */
-int
-BPtree::insert_record(int primary_key, int record_num)
+//key is first coloumn of database either can be int or varchar;
+int BPtree::insert_record(int primary_key, int record_num)
 {
 	//printf("pri %d\n record_num %d",primary_key,record_num);
     Btreenode n(true);
@@ -367,7 +367,7 @@ BPtree::insert_record(int primary_key, int record_num)
 
     read_node(curr_node, n);
 
-    //Traversing the Tree from root till leaf
+    //Traverse the tree till we get the leaf node;
     while (!n.isleaf())
     {
         S.push(curr_node);      //Storing address in case of split
@@ -403,6 +403,7 @@ BPtree::insert_record(int primary_key, int record_num)
         return BPTREE_INSERT_SUCCESS;
     }
 
+    //if node n is full, then split;
     Btreenode temp(true), new_node(true);
 
     temp = n;
