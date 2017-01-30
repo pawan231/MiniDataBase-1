@@ -19,15 +19,9 @@ Features of system include:
 #### 1. Custom Blocks for each table:
 The data is stored in blocks.  
 
-Benefits of blocking:
-
-1. Blocking reduces the overhead and speeds up the handling of the data-stream. 
-
-2. Blocking reduces the amount of external storage required for the data. 
+Benefits of blocking: [here](https://en.wikipedia.org/wiki/Block_(data_storage))
 
 All the separate row data of a particular table is stored in different file creating blocks of data. System reads as well as writes data back to files in blocks.
-
-More description about blocks [here](https://en.wikipedia.org/wiki/Block_(data_storage))
 
 #### 2. B+ Tree Indexing:
 A separate multilevel B+ tree is created for each table. Each node contains maximum of 50 entries. Right now data storage  is based only on primary key, primary key can be INTEGER or VARCHAR.
