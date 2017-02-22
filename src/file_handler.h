@@ -56,7 +56,6 @@ void setup_files(struct table *t_ptr, int is_new)
         printf("Error opening rec file\n");
     }
     t_ptr->fp = fp;
-    //printf("Done in setup_files\n");
 }
 
 
