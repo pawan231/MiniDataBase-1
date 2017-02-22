@@ -52,18 +52,6 @@ void setup_files(struct table *t_ptr, int is_new)
     else
         fp = open_file(t_ptr->name, 2, const_cast<char*>("r+"));
 
-    if (!t_ptr->is_temp){
-        if (is_new)
-            fpt = open_file(t_ptr->name, 1, const_cast<char*>("w+"));
-        else
-            fpt = open_file(t_ptr->name, 1, const_cast<char*>("r+"));
-
-        if (!fpt){
-            printf("Error opening met file\n");
-        }
-        else
-            fclose(fpt);
-    }
     if (!fp){
         printf("Error opening rec file\n");
     }
