@@ -28,27 +28,19 @@ table * create_table(char name[],int count){
 	temp->rec_count=0;
 	temp->data_size=0;
 
-	//enter the data
-	cout<<"enter column name,data type(1.int 2.varchar) and max size\n";
+	//enter the data for columns of table
+	cout<<"Enter column name,Data type(1.int 2.varchar) and max size of column\n";
 	for(int i=0;i<count;i++){
 		cin>>temp->col[i].col_name>>temp->col[i].type>>temp->col[i].size;
 	}
-
-
 	return temp;
 }
 
 void create(){
 	char name[20];
 	int count;
-	cout<<"enter table name\n";
+	cout<<"Enter table name\n";
 	cin>>name;
-
-	//check if table name tab_name already exists in the table_list file;
-	//if not exists then create new;
-	cout<<"enter no. of columns\n";
-	cin>>count;
-
 
 	//check if new table already exists in table list or not
 	FILE *fp=fopen("./table/table_list","r+");
@@ -60,14 +52,15 @@ void create(){
 			return;
 		}
 	}
+	//if its a new table, make a entry inside table_list
 	fseek(fp,0,SEEK_END);
 	fprintf(fp,"%s\n",name);
 	//BPtree temp_bp(name);
 	fclose(fp);
 
 	//enter table details if not exist
-
-
+	cout<<"enter no. of columns\n";
+	cin>>count;
 	table *temp;
 	temp=create_table(name,count);
 	//calculate the size of the block
