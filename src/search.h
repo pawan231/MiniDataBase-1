@@ -1,6 +1,7 @@
 #include "declaration.h"
 
 void search(){
+	//search for particular table or any specific entry inside table
 	cout<<"1.search table\n2.search particular entry in table\n\n";
 	int ch;
 	cin>>ch;
