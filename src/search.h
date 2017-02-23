@@ -10,6 +10,7 @@ void search(){
 	if(ch==1){
 		cout<<"enter table name: \n";
 		cin>>tab;
+		//check if table exists
 		int check=search_table(tab);
 		if(check==1) printf("%s exists!!!\n",tab);
 		else printf("%s doesn't exist in table entry\n\n",tab);
