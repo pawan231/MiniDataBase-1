@@ -39,52 +39,52 @@ void input(){
 	query.pb(make_pair("create table",1));
 
 	int c=0;;
-	cout<<"\n select the query to implement\n";
-	cout<<"\n1.SHOW TABLES\n2.CREATE\n3.INSERT\n4.DROP\n5.DESCRIBE\n6.SEARCH\n7.HELP\n8.QUIT\n\n";
-	cin>>c;
+	printf("\n select the query to implement\n");
+	printf("\n1.SHOW TABLES\n2.CREATE\n3.INSERT\n4.DROP\n5.DESCRIBE\n6.SEARCH\n7.HELP\n8.QUIT\n\n");
+	scanf("%d",&c);
 	while(c<9 && c>0){
-	switch(c){
-	case 1:
-		show_tables();
-		break;
-	case 2:
-		create();
-		break;
-	case 3:
-		insert();
-		break;
-	case 4:
-		drop();
-		break;
-	case 5:
-		display();
-		break;
-	case 6:
-		search();
-		break;
-	case 8:
-		cout<<"\n\t\t good bye!!!\n\n";
-		exit(0);
-		break;
-	case 7:
-		help();
-		break;
-	default:
-		cout<<"error\n";
-		break;
-	}
-	//system("clear");
-	cout<<"\nselect the query to implement\n";
-	cout<<"\n1.SHOW TABLES\n2.CREATE\n3.INSERT\n4.DROP\n5.DISPLAY\n6.SEARCH\n7.HELP\n8.QUIT\n\n";
-		cin>>c;
+		switch(c){
+			case 1:
+				show_tables();
+				break;
+			case 2:
+				create();
+				break;
+			case 3:
+				insert();
+				break;
+			case 4:
+				drop();
+				break;
+			case 5:
+				display();
+				break;
+			case 6:
+				search();
+				break;
+			case 8:
+				printf("\n\t\t good bye!!!\n\n");
+				exit(0);
+				break;
+			case 7:
+				help();
+				break;
+			default:
+				printf("error\n");
+				break;
+		}
+	    //system("clear");
+		printf("\nselect the query to implement\n");
+		printf("\n1.SHOW TABLES\n2.CREATE\n3.INSERT\n4.DROP\n5.DISPLAY\n6.SEARCH\n7.HELP\n8.QUIT\n\n");
+		scanf("%d",&c);
 	}
 }
 
 //starting the system
 void start_system(){
 	system("clear");
-	cout<<"\n\t\t\tWELCOME\n\n";
-	cout<<"\t\tWelcome to myDB monitor \n\n";
+	printf("\n\t\t\tWELCOME\n\n");
+	printf("\t\tWelcome to myDB monitor \n\n");
 	//cout<<"\t\tType h for help and q for quit\n\n";
 	input();
 }
@@ -93,6 +93,5 @@ void start_system(){
 int main() {
 	//cout << "!!!Hello World!!!" << endl; // prints !!!Hello World!!!
 	start_system();
-
 	return 0;
 }
