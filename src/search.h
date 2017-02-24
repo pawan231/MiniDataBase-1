@@ -12,8 +12,8 @@ void search(){
 		cin>>tab;
 		//check if table exists
 		int check=search_table(tab);
-		if(check==1) printf("%s exists!!!\n",tab);
-		else printf("%s doesn't exist in table entry\n\n",tab);
+		if(check==1) printf("\n%s exists!!!\n",tab);
+		else printf("\n%s doesn't exist in table entry\n\n",tab);
 	}
 	else if(ch==2){
 		cout<<"enter table name::\n";
