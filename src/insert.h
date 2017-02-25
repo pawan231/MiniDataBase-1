@@ -274,5 +274,4 @@ void insert(){
 		insert_command(tab,data,strlen(var),total,data1);
 	}
 	free(tab);
-
 }

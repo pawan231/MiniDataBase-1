@@ -70,7 +70,6 @@ void search(){
 				 	free(str1);
 
 				 }
-
 			}
 			else if(inp1.col[0].type==VARCHAR){
 				cout<<"\nenter  key[col 0] to search\n";

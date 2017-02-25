@@ -75,7 +75,7 @@ void input(){
 		}
 	    //system("clear");
 		printf("\nselect the query to implement\n");
-		printf("\n1.SHOW TABLES\n2.CREATE\n3.INSERT\n4.DROP\n5.DISPLAY\n6.SEARCH\n7.HELP\n8.QUIT\n\n");
+		printf("\n1.SHOW TABLES\n2.CREATE\n3.INSERT\n4.DROP\n5.DESCRIBE\n6.SEARCH\n7.HELP\n8.QUIT\n\n");
 		scanf("%d",&c);
 	}
 }
