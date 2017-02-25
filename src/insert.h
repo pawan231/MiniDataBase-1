@@ -8,15 +8,6 @@ int search_table(char tab_name[]){
 	//char name[MAX_NAME +1];
 		//FILE *fp=fopen("./table/table_list","r+");
 		//string temp=tab_name;
-		//use grep to search table_name string inside table_list
-		char str[MAX_NAME+1];
-		strcpy(str,"grep -Fxq ");
-		strcat(str,tab_name);
-		strcat(str," ./table/table_list");
-		//cout<<str<<endl;
-		int x = system(str);
-		if(x==0)return 1;
-		else return 0;
 		/*
 		while(fscanf(fp,"%s",name)!=EOF){
 			if(strcmp(tab_name,name)==0){
@@ -24,7 +15,17 @@ int search_table(char tab_name[]){
 				return 1;
 			}
 		}*/
-		//cout<<"inside search2\n";
+		//use grep to search table_name string inside table_list
+		// -F -> --fixed-strings ;intepret pattern as a list of fixed strings
+		// -x -> --line-regexp ;select only those matches that exactly match the whole line
+		// -q -> quite, --silent ;write anything to standard output, exit immediately with zero status if any match is found
+		char str[MAX_NAME+1];
+		strcpy(str,"grep -Fxq ");
+		strcat(str,tab_name);
+		strcat(str," ./table/table_list");
+		int x = system(str);
+		if(x==0)return 1;
+		else return 0;
 	return 0;
 }
 
