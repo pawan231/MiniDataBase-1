@@ -57,14 +57,6 @@ For execution:
  
  ./a.out
  
-## REFERENCES:
- Database Management Systems CHAPTER 9 [link here](https://drive.google.com/file/d/0B_UNhB7shKrMa2RTUFFaNkdjQWM/view?pli=1)
- 
- Author: Raghu Ramakrishnan
-
- [stackoverflow](www.stackoverflow.com)
- 
- 
 
 ## PROJECT CONTRIBUTORS:
 1.[Mandeep Singh](https://github.com/msdeep14) -> mandeepsinghshekhawat95@gmail.com ;; [msdeep14](http://msdeep14.github.io/)
