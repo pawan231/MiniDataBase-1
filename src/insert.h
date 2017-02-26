@@ -45,7 +45,7 @@ void insert_command(char tname[],void *data[],int len,int total,void *data1[]){
 	ret=obj.insert_record(*((int *)data[0]),temp->rec_count);
 	if(ret==2){
 		cout<<"key already exists\n";
-		cout<<"exiting\n";
+		cout<<"exiting...\n";
 		return ;
 	}
 
@@ -166,7 +166,7 @@ void insert_command(char tname[],void *data[],int len,int total,void *data1[]){
 void insert(){
 	char *tab;
 	tab=(char*)malloc(sizeof(char)*MAX_PATH+1);
-	cout<<"Enter table name \n";
+	cout<<"enter table name: ";
 	cin>>tab;
 	int check=search_table(tab);
 	if(check==0){

@@ -8,7 +8,7 @@ void search(){
 	char *tab;
 	tab=(char*)malloc(sizeof(char)*MAX_NAME);
 	if(ch==1){
-		cout<<"enter table name: \n";
+		cout<<"enter table name: ";
 		cin>>tab;
 		//check if table exists
 		int check=search_table(tab);
@@ -16,7 +16,7 @@ void search(){
 		else printf("\n%s doesn't exist in table entry\n\n",tab);
 	}
 	else if(ch==2){
-		cout<<"enter table name::\n";
+		cout<<"enter table name: ";
 		cin>>tab;
 		int check=search_table(tab);
 		if(check==1){

@@ -39,12 +39,12 @@ table * create_table(char name[],int count){
 void create(){
 	char name[20];
 	int count;
-	cout<<"Enter table name\n";
+	cout<<"Enter table name: ";
 	cin>>name;
 
 	//check if new table already exists in table list or not
 	FILE *fp=fopen("./table/table_list","r+");
-	if(fp==NULL) cout<<"hello";
+	if(fp==NULL) cout<<"file pointer is null\n";
 	char tab_name[20];
 	while(fscanf(fp,"%s",tab_name)!=EOF){
 		if(strcmp(tab_name,name)==0){
@@ -59,7 +59,7 @@ void create(){
 	fclose(fp);
 
 	//enter table details if not exist
-	cout<<"enter no. of columns\n";
+	cout<<"enter no. of columns: ";
 	cin>>count;
 	table *temp;
 	temp=create_table(name,count);

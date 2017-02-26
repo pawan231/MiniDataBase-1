@@ -35,12 +35,12 @@ void help(){
 
 //take input string from user
 void input(){
-	vector<pair<string,int> > query;
-	query.pb(make_pair("create table",1));
+	//vector<pair<string,int> > query;
+	//query.pb(make_pair("create table",1));
 
 	int c=0;;
 	printf("\n select the query to implement\n");
-	printf("\n1.SHOW TABLES\n2.CREATE\n3.INSERT\n4.DROP\n5.DESCRIBE\n6.SEARCH\n7.HELP\n8.QUIT\n\n");
+	printf("\n1.show all tables in database\n2.create table\n3.insert into table\n4.drop table\n5.describe table\n6.search table or search inside table\n7.help\n8.quit\n\n");
 	scanf("%d",&c);
 	while(c<9 && c>0){
 		switch(c){
@@ -63,6 +63,7 @@ void input(){
 				search();
 				break;
 			case 8:
+				printf("\nexiting...\n");
 				printf("\n\t\t good bye!!!\n\n");
 				exit(0);
 				break;
@@ -70,12 +71,12 @@ void input(){
 				help();
 				break;
 			default:
-				printf("error\n");
+				printf("\nplease choose a correct option\n");
 				break;
 		}
 	    //system("clear");
 		printf("\nselect the query to implement\n");
-		printf("\n1.SHOW TABLES\n2.CREATE\n3.INSERT\n4.DROP\n5.DESCRIBE\n6.SEARCH\n7.HELP\n8.QUIT\n\n");
+		printf("\n1.show all tables in database\n2.create table\n3.insert into table\n4.drop table\n5.describe table\n6.search table or search inside table\n7.help\n8.quit\n\n");
 		scanf("%d",&c);
 	}
 }
