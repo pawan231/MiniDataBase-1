@@ -23,7 +23,7 @@ void search(){
 			printf("%s exists!!!\n\nEnter key to search\n\n",tab);
 			//open %s meta data file and display column details;
 			table inp1;
-			FILE *fp = open_file(tab, 1, const_cast<char*>("r"));
+			FILE *fp = open_file(tab, const_cast<char*>("r"));
      		 int i=0;
 			while(fread(&inp1,sizeof(table),1,fp)){
 				for(i=0;i<inp1.count;i++){

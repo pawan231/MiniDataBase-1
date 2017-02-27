@@ -35,7 +35,7 @@ void insert_command(char tname[],void *data[],int len,int total,void *data1[]){
 	int ret;
 	BPtree obj(tname);
 	//open meta data
-	FILE *fp=open_file(tname,1,const_cast<char*>("r"));
+	FILE *fp=open_file(tname,const_cast<char*>("r"));
 	//if(fp!=NULL) cout<<"nunn\n";
 	temp=(table*)malloc(sizeof(table));
 	fread(temp,sizeof(table),1,fp);
@@ -52,7 +52,7 @@ void insert_command(char tname[],void *data[],int len,int total,void *data1[]){
 	//if no error occurred during insertion of key
 	//write the data to file;
 	//update the meta data;
-	fp=open_file(tname,1,const_cast<char*>("w+"));
+	fp=open_file(tname,const_cast<char*>("w+"));
 	int file_num=temp->rec_count;
 	temp->rec_count=temp->rec_count+1;
 	temp->data_size=total;
@@ -183,7 +183,7 @@ void insert(){
 		//cout<<dir<<endl;
      	table inp1;
 		int count;
-		FILE *fp = open_file(tab, 1, const_cast<char*>("r"));
+		FILE *fp = open_file(tab, const_cast<char*>("r"));
 		int i=0;
 		while(fread(&inp1,sizeof(table),1,fp)){
 			printf("\n------------------------------------\n");

@@ -18,7 +18,7 @@ void display(){
 		int tot=0;
 		temp=(table*)malloc(sizeof(table));
 		printf("\n-----------------------------------------------\n");
-		FILE *fp=open_file(tab,1,const_cast<char*>("r"));
+		FILE *fp=open_file(tab,const_cast<char*>("r"));
 		if(fp){
 			fread(temp,1,sizeof(table),fp);
 			count=temp->count;
@@ -99,5 +99,3 @@ void show_tables(){
 	printf("---------------------------\n");
 	free(name);
 }
-
-

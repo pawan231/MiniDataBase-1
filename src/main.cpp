@@ -40,7 +40,7 @@ void input(){
 
 	int c=0;;
 	printf("\n select the query to implement\n");
-	printf("\n1.show all tables in database\n2.create table\n3.insert into table\n4.drop table\n5.describe table\n6.search table or search inside table\n7.help\n8.quit\n\n");
+	printf("\n1.show all tables in database\n2.create table\n3.insert into table\n4.drop table\n5.display table contents\n6.search table or search inside table\n7.help\n8.quit\n\n");
 	scanf("%d",&c);
 	while(c<9 && c>0){
 		switch(c){
@@ -75,8 +75,9 @@ void input(){
 				break;
 		}
 	    //system("clear");
+		printf("\n\n======================================================================================================\n\n");
 		printf("\nselect the query to implement\n");
-		printf("\n1.show all tables in database\n2.create table\n3.insert into table\n4.drop table\n5.describe table\n6.search table or search inside table\n7.help\n8.quit\n\n");
+		printf("\n1.show all tables in database\n2.create table\n3.insert into table\n4.drop table\n5.display table contents\n6.search table or search inside table\n7.help\n8.quit\n\n");
 		scanf("%d",&c);
 	}
 }

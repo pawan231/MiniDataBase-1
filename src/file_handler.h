@@ -1,6 +1,6 @@
 #include "declaration.h"
 
-FILE *open_file(char t_name[], int option, char perm[]){
+FILE *open_file(char t_name[] ,char perm[]){
 
     FILE *fp;
     struct stat st = {0};
@@ -16,25 +16,25 @@ FILE *open_file(char t_name[], int option, char perm[]){
     if (stat(name, &st) == -1)
         mkdir(name, 0775);
 
-    switch(option){
+    //switch(option){
         // met
-        case 1:
+    //    case 1:
         	strcat(name, "met");
         	//printf("Opening file: %s %d %s %d\n", name, option, perm, is_temp);
         	fp = fopen(name, perm);
-        	break;
+    //    	break;
 
         // ret
-        case 2:
-        	strcat(name, "rec");
+    //    case 2:
+        	//strcat(name, "rec");
         	//cout<<name<<"  rec\n";
         	//printf("Opening file: %s %d %s %d\n", name, option, perm, is_temp);
-        	fp = fopen(name, perm);
-        	break;
+        	//fp = fopen(name, perm);
+    //    	break;
 
         //printf("Open file called with wrong option\n");
 
-    }
+    //}
     if (!fp)
     {
        // printf("Error in opening file: %s %d %s %d\n", name, option, perm, is_temp);
@@ -42,6 +42,7 @@ FILE *open_file(char t_name[], int option, char perm[]){
     free(name);
     return fp;
 }
+/*
 void setup_files(struct table *t_ptr, int is_new)
 {
     //printf("Inside setup_files\n");
@@ -57,11 +58,11 @@ void setup_files(struct table *t_ptr, int is_new)
     }
     t_ptr->fp = fp;
 }
+*/
 
-
-int write_struct(struct table *t_ptr)
+int store_meta_data(struct table *t_ptr)
 {
-    FILE *fp = open_file(t_ptr->name, 1, const_cast<char*>("w"));
+    FILE *fp = open_file(t_ptr->name, const_cast<char*>("w"));
     fwrite(t_ptr, sizeof(struct table), 1, fp);
     fclose(fp);
     //printf("Struct updated\n");

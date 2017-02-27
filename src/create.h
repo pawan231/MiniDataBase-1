@@ -37,8 +37,9 @@ table * create_table(char name[],int count){
 }
 
 void create(){
-	char name[20];
+	char *name;
 	int count;
+	name=(char*)malloc(sizeof(char)*MAX_NAME);
 	cout<<"Enter table name: ";
 	cin>>name;
 
@@ -66,13 +67,13 @@ void create(){
 	//calculate the size of the block
 		temp->size=record_size(temp);
 		if(temp!=NULL){
-		setup_files(temp,1);
-		fclose(temp->fp);
+		//setup_files(temp,1);
+		//fclose(temp->fp);
 		temp->blockbuf = malloc(temp->BLOCKSIZE);
-        fp  = open_file(temp->name, 2, const_cast<char*>("w"));
+        fp  = open_file(temp->name, const_cast<char*>("w"));
         fwrite(temp->blockbuf, 1, temp->BLOCKSIZE, fp);
         fclose(fp);
-        write_struct(temp);
+        store_meta_data(temp);
         free(temp->blockbuf);
 		free(temp);
 			        //return 0;
