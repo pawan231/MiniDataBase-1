@@ -4,17 +4,7 @@
 
 int search_table(char tab_name[]){
 	//check if new table already exists in table list or not
-	//cout<<"inside search1\n";
-	//char name[MAX_NAME +1];
-		//FILE *fp=fopen("./table/table_list","r+");
-		//string temp=tab_name;
-		/*
-		while(fscanf(fp,"%s",name)!=EOF){
-			if(strcmp(tab_name,name)==0){
-				cout<<tab_name<<" TABLE EXISTS\n";
-				return 1;
-			}
-		}*/
+
 		//use grep to search table_name string inside table_list
 		// -F -> --fixed-strings ;intepret pattern as a list of fixed strings
 		// -x -> --line-regexp ;select only those matches that exactly match the whole line
@@ -80,83 +70,7 @@ void insert_command(char tname[],void *data[],int len,int total,void *data1[]){
 			fwrite(y,sizeof(char)*MAX_NAME,1,fpr);
 		}
 	}
-
-
-	//fwrite(data,total,1,fpr);
 	fclose(fpr);
-	/*
-	fp=fopen(str,"r");
-	int c;
-	char d[MAX_NAME];
-	for(int j=0;j<temp->count;j++){
-		if(temp->col[j].type==INT){
-			fread(&c,1,sizeof(int),fpr);
-			cout<<c<<"\t";
-		}
-		else if(temp->col[j].type==VARCHAR){
-			fread(d,1,sizeof(char)*MAX_NAME,fpr);
-			cout<<d<<"\t";
-		}
-	}
-	*/
-	/*char *str;
-	str=(char*)malloc(sizeof(char)*MAX_PATH);
-	sprintf(str,"table/%s/file%d.dat",tname,temp->rec_count);
-	ofstream outfile(str,ofstream::out|ofstream::binary);
-
-	for(int i=0;i<temp->count;i++)
-	{
-
-
-
-		if(temp->col[i].type==INT)
-		{
-			int x=*(int *)data[i];
-			outfile.write((char *)(&x),sizeof(x));
-		}
-		else if(temp->col[i].type==VARCHAR)
-		{
-			outfile.write((char*)(data[i]),sizeof(char)*len);
-		}
-	}
-	outfile.close();
-	char *str1;
-	int id1;
-	char name[10];
-	str1=(char *)malloc(sizeof(char)*MAX_PATH);
-	for(int i=0;i<temp->count+1;i++)
-	{
-		sprintf(str1,"table/%s/file%d.dat",tname,i);
-		cout<<"file name "<<str1<<endl;
-		ifstream infile(str1,ifstream::in | ifstream::binary);
-		infile>>id1>>name;
-		cout<<id1<<" "<<name<<endl;
-		infile.close();
-
-	}
-
-
-
-
-	fpr=fopen(str,"r");
-
-	//cout<<*(int *)data1[0]<<" ";
-	fread(data1,temp->count,sizeof(data),fpr);
-	for(int i=0;i<temp->count;i++)
-	{
-
-			if(temp->col[i].type==INT)
-			{
-				cout<<*(int *)data1[i]<<" ";
-							}
-			else if(temp->col[i].type==VARCHAR)
-			{
-				cout<<(char *)data1[i]<<" ";
-			}
-	}
-    cout<<endl;
-	//fclose(fp);*/
-	//fclose(fpr);
 	free(str);
 	free(temp);
 
@@ -200,12 +114,8 @@ void insert(){
 		//enter data;
 		int x;
 		char var[MAX_NAME+1];
-		//open file .rec and write data to it
 		void * data[MAX_ATTR];
 		void *data1[MAX_ATTR];
-		//int col[MAX_ATTR];
-		//col_details inp;
-		//int y=&x;
 
 		//input data for the table of desired datatype 1.int 2.varchar;
 		int size=0;
@@ -256,21 +166,6 @@ void insert(){
 			size++;
 		}
 	}
-		/*
-		//cout<<"hello mandeep1\n";
-		//cout<<(char*)(data[1])<<" ";
-		//check if data is inserted
-		for(int i=0;i<size;i++){
-			if(inp1.col[i].type==1){
-				cout<<*((int*)(data[i]))<<" ";
-				cout<<"int\n";
-			}
-			else if(inp1.col[i].type==2){
-				cout<<(char*)(data[i])<<" ";
-				cout<<"char\n";
-			}
-		}
-		*/
 		insert_command(tab,data,strlen(var),total,data1);
 	}
 	free(tab);

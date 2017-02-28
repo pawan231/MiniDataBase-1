@@ -15,50 +15,14 @@ FILE *open_file(char t_name[] ,char perm[]){
 
     if (stat(name, &st) == -1)
         mkdir(name, 0775);
-
-    //switch(option){
-        // met
-    //    case 1:
-        	strcat(name, "met");
-        	//printf("Opening file: %s %d %s %d\n", name, option, perm, is_temp);
-        	fp = fopen(name, perm);
-    //    	break;
-
-        // ret
-    //    case 2:
-        	//strcat(name, "rec");
-        	//cout<<name<<"  rec\n";
-        	//printf("Opening file: %s %d %s %d\n", name, option, perm, is_temp);
-        	//fp = fopen(name, perm);
-    //    	break;
-
-        //printf("Open file called with wrong option\n");
-
-    //}
-    if (!fp)
-    {
-       // printf("Error in opening file: %s %d %s %d\n", name, option, perm, is_temp);
+    strcat(name, "met");
+    fp = fopen(name, perm);
+    if (!fp){
+        printf("\nError in opening file\n");
     }
     free(name);
     return fp;
 }
-/*
-void setup_files(struct table *t_ptr, int is_new)
-{
-    //printf("Inside setup_files\n");
-    FILE *fp, *fpt;
-
-    if (is_new)
-        fp = open_file(t_ptr->name, 2, const_cast<char*>("w+"));
-    else
-        fp = open_file(t_ptr->name, 2, const_cast<char*>("r+"));
-
-    if (!fp){
-        printf("Error opening rec file\n");
-    }
-    t_ptr->fp = fp;
-}
-*/
 
 int store_meta_data(struct table *t_ptr)
 {
