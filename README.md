@@ -5,7 +5,7 @@ Data Storage and Retrieval using B+ Tree Indexing with a touch of mini Database 
 1. SHOW Tables
 2. CREATE Tables
 3. INSERT INTO Table
-4. DISPLAY Table
+4. DISPLAY Table contents
 5. SEARCH INTO Table
 6. DROP Table
 
