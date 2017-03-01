@@ -26,10 +26,8 @@ void insert_command(char tname[],void *data[],int len,int total,void *data1[]){
 	BPtree obj(tname);
 	//open meta data
 	FILE *fp=open_file(tname,const_cast<char*>("r"));
-	//if(fp!=NULL) cout<<"nunn\n";
 	temp=(table*)malloc(sizeof(table));
 	fread(temp,sizeof(table),1,fp);
-	//cout<<temp->rec_count<<"\n";
 
 	//insert into table and write to btree file nodes
 	ret=obj.insert_record(*((int *)data[0]),temp->rec_count);
