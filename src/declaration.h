@@ -62,9 +62,7 @@ struct table{
 	int data_size;
 	int BLOCKSIZE;
 	FILE *fp;
-	FILE *fpt;
 	void *blockbuf;
 	int rec_count;
-	int is_temp;
 };
 #endif
