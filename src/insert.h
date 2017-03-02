@@ -37,7 +37,7 @@ void insert_command(char tname[],void *data[],int len,int total,void *data1[]){
 	}
 
 	//if no error occurred during insertion of key
-	//write the data to file;
+	
 	//update the meta data;
 	fp=open_file(tname,const_cast<char*>("w+"));
 	int file_num=temp->rec_count;
