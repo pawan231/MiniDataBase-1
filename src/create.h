@@ -53,11 +53,6 @@ void create(){
 			return;
 		}
 	}
-	//if its a new table, make a entry inside table_list
-	fseek(fp,0,SEEK_END);
-	fprintf(fp,"%s\n",name);
-	//BPtree temp_bp(name);
-	fclose(fp);
 
 	//enter table details if not exist
 	cout<<"enter no. of columns: ";
@@ -70,13 +65,19 @@ void create(){
 		//setup_files(temp,1);
 		//fclose(temp->fp);
 		temp->blockbuf = malloc(temp->BLOCKSIZE);
-        fp  = open_file(temp->name, const_cast<char*>("w"));
+		FILE *fpr;
+        fpr  = open_file(temp->name, const_cast<char*>("w"));
         fwrite(temp->blockbuf, 1, temp->BLOCKSIZE, fp);
-        fclose(fp);
+        fclose(fpr);
         store_meta_data(temp);
         free(temp->blockbuf);
 		free(temp);
-			        //return 0;
+
+		//if its a new table, make a entry inside table_list
+		fseek(fp,0,SEEK_END);
+		fprintf(fp,"%s\n",name);
+		fclose(fp);
+		free(name);
 	}
 		else
 		 {
