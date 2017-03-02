@@ -21,7 +21,6 @@ int search_table(char tab_name[]){
 
 void insert_command(char tname[],void *data[],int len,int total,void *data1[]){
 	table *temp;
-	//cout<<"inside insert command\n";
 	int ret;
 	BPtree obj(tname);
 	//open meta data
@@ -64,7 +63,6 @@ void insert_command(char tname[],void *data[],int len,int total,void *data1[]){
 		else if(temp->col[j].type==VARCHAR){
 
 			strcpy(y,(char *)data[j]);
-			//cout<<y;
 			fwrite(y,sizeof(char)*MAX_NAME,1,fpr);
 		}
 	}
@@ -92,7 +90,6 @@ void insert(){
 		strcpy(dir,"./table/");
 		strcat(dir,tab);
 		strcat(dir,"/met");
-		//cout<<dir<<endl;
      	table inp1;
 		int count;
 		FILE *fp = open_file(tab, const_cast<char*>("r"));
@@ -101,7 +98,6 @@ void insert(){
 			printf("\n------------------------------------\n");
 			cout<<"\ninsert the following details ::\n";
 			printf("\n------------------------------------\n");
-			//cout<<inp1.count<<"\n";
 			count=inp1.count;
 			for(i=0;i<inp1.count;i++){
 				cout<<inp1.col[i].col_name<<"("<<inp1.col[i].type<<"),size:"<<inp1.col[i].size;
@@ -119,13 +115,10 @@ void insert(){
 		int size=0;
 		int total=0;
 		for(int i=0;i<count;i++){
-			//cout<<(char *)data[1]<<endl;
 		if(inp1.col[i].type==INT){
 			data[i] =(int*) malloc(sizeof(int));
 			data1[i] =(int*) malloc(sizeof(int));
 			total+=sizeof(int);
-			//col[i]=1;
-			//cout<<"above *X\n";
 			int flag=1;
 			while(flag){
 			cin>>(x);
