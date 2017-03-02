@@ -19,6 +19,7 @@ int record_size(table *temp){
 	return size;
 }
 table * create_table(char name[],int count){
+	table *toreturn = new table();
 	table *temp=new table();
 	temp->fp=NULL;
 	temp->blockbuf=NULL;
@@ -29,11 +30,19 @@ table * create_table(char name[],int count){
 	temp->data_size=0;
 
 	//enter the data for columns of table
+	int i=0;
 	cout<<"Enter column name,Data type(1.int 2.varchar) and max size of column\n";
-	for(int i=0;i<count;i++){
+	for(i=0;i<count;i++){
 		cin>>temp->col[i].col_name>>temp->col[i].type>>temp->col[i].size;
 	}
-	return temp;
+	if(i<count){
+		printf("\n\tYou have not entered all details of columns\n\n");
+		return NULL;
+	}
+	else{
+		toreturn = temp;
+		return toreturn;
+	}
 }
 
 void create(){
@@ -62,8 +71,6 @@ void create(){
 	//calculate the size of the block
 		temp->size=record_size(temp);
 		if(temp!=NULL){
-		//setup_files(temp,1);
-		//fclose(temp->fp);
 		temp->blockbuf = malloc(temp->BLOCKSIZE);
 		FILE *fpr;
         fpr  = open_file(temp->name, const_cast<char*>("w"));
