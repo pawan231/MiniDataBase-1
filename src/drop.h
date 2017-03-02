@@ -20,4 +20,7 @@ void drop(){
         system(temp);
         printf("\n%s deleted\n\n",temp1);
 	}
+	else{
+		printf("\nerror\nexiting...\n\n");
+	}
 }
