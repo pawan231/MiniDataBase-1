@@ -29,6 +29,5 @@ int store_meta_data(struct table *t_ptr)
     FILE *fp = open_file(t_ptr->name, const_cast<char*>("w"));
     fwrite(t_ptr, sizeof(struct table), 1, fp);
     fclose(fp);
-    //printf("Struct updated\n");
     return 0;
 }
