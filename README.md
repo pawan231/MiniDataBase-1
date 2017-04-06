@@ -32,30 +32,19 @@ A separate multilevel B+ tree is created for each table. Each node contains maxi
 #### 4. B+ Tree Indexed Search:
  For searching a record in file for particular table, B+ tree indexed search is implemented. Search is only based on primary  key right now.
  
- Advantages of B+ Tree Indexing:
- 
- 1. Since all records are stored only in the leaf node and are sorted sequential linked list, searching is becomes very easy.
- 2. As the number of record increases/decreases, B+ tree structure grows/shrinks. There is no restriction on B+ tree size.
- 3. Since it is a balance tree structure, any insert/ delete/ update does not affect the performance.
- 4. Since we have all the data stored in the leaf nodes and more branching of internal nodes makes height of the tree shorter. This reduces disk I/O. Hence it works well in secondary storage devices.
+ Advantages of B+ Tree Indexing [here](https://www.tutorialcup.com/dbms/b-plus-tree.htm)
  
 System also calculates the time taken by the search algorithm.
  
 ## DEVELOPMENT:
-The whole project is done on eclipse platform(C/C++ perspective).
+The whole project is initially done on eclipse platform(C/C++ perspective).
 
-It is also tested on linux terminal.
+Further modifications are done on linux
 
 For execution:
- You can simple build and run on eclipse platform or 
- 
- on terminal by executing following commands:
- 
- ->if you running this program using terminal, you need to move folder "table" to "src".
- 
- g++ main.cpp
- 
- ./a.out
+	1. Simple type **make**, it will compile the project.
+	2. Type **./tinydb** for running project.
+	3. Type **make clean** for recompiling the project.
  
 
 ## PROJECT CONTRIBUTORS:
