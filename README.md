@@ -1,5 +1,7 @@
 # MiniDataBase
-Data Storage and Retrieval using B+ Tree Indexing with a touch of mini Database Engine.
+Data Storage and Retrieval using B+ Tree Indexing.
+
+The database engine is designed on Relational model.
 
 ## QUERIES SUPPORTED BY SYSTEM
 1. SHOW Tables
@@ -41,13 +43,13 @@ The whole project is initially done on eclipse platform(C/C++ perspective).
 
 Further modifications are done on linux
 
-For execution:
+For execution: Open directory MiniDatabase and on terminal
 
-	1. Simple type **make**, it will compile the project.
+1. Type **make**, it will compile the project.
 	
-	2. Type **./tinydb** for running project.
+2. Type **./tinydb** for running project.
 	
-	3. Type **make clean** for recompiling the project.
+3. Type **make clean** for recompiling the project.
  
 
 ## PROJECT CONTRIBUTORS:
