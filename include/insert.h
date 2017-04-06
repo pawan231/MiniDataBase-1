@@ -19,7 +19,7 @@ int search_table(char tab_name[]){
 	return 0;
 }
 
-void insert_command(char tname[],void *data[],int len,int total,void *data1[]){
+void insert_command(char tname[],void *data[],int total){
 	table *temp;
 	int ret;
 	BPtree obj(tname);
@@ -37,7 +37,7 @@ void insert_command(char tname[],void *data[],int len,int total,void *data1[]){
 	}
 
 	//if no error occurred during insertion of key
-	
+
 	//update the meta data;
 	fp=open_file(tname,const_cast<char*>("w+"));
 	int file_num=temp->rec_count;
@@ -109,7 +109,7 @@ void insert(){
 		int x;
 		char var[MAX_NAME+1];
 		void * data[MAX_ATTR];
-		void *data1[MAX_ATTR];
+		//void *data1[MAX_ATTR];
 
 		//input data for the table of desired datatype 1.int 2.varchar;
 		int size=0;
@@ -117,7 +117,7 @@ void insert(){
 		for(int i=0;i<count;i++){
 		if(inp1.col[i].type==INT){
 			data[i] =(int*) malloc(sizeof(int));
-			data1[i] =(int*) malloc(sizeof(int));
+			//data1[i] =(int*) malloc(sizeof(int));
 			total+=sizeof(int);
 			int flag=1;
 			while(flag){
@@ -141,7 +141,7 @@ void insert(){
 		else if(inp1.col[i].type==VARCHAR){
 			//cout<<"inside varchar\n";
 			data[i] = malloc(sizeof(char) * (MAX_NAME + 1));
-			data1[i] = malloc(sizeof(char) * (MAX_NAME + 1));
+			//data1[i] = malloc(sizeof(char) * (MAX_NAME + 1));
 			int flag=1;
 			while(flag){
 			cin>>var;
@@ -157,7 +157,7 @@ void insert(){
 			size++;
 		}
 	}
-		insert_command(tab,data,strlen(var),total,data1);
+		insert_command(tab,data,total);
 	}
 	free(tab);
 }
