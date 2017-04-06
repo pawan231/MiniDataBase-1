@@ -1,6 +1,5 @@
 /*
-** code references https://github.com/Bug-Assassins/DFC_query_builder/blob/master/Core/bptree.h
-** several modification according the project need
+** 
 ** 
 
 */
