@@ -42,8 +42,11 @@ The whole project is initially done on eclipse platform(C/C++ perspective).
 Further modifications are done on linux
 
 For execution:
+
 	1. Simple type **make**, it will compile the project.
+	
 	2. Type **./tinydb** for running project.
+	
 	3. Type **make clean** for recompiling the project.
  
 
