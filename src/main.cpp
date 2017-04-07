@@ -33,15 +33,28 @@ void help(){
 			"---------------------------------------------------------------------------------------------------");
 }
 
-//take input string from user
-void input(){
-	//vector<pair<string,int> > query;
-	//query.pb(make_pair("create table",1));
-
-	int c=0;;
+int take_input_option(){
+	string option;
 	printf("\n select the query to implement\n");
 	printf("\n1.show all tables in database\n2.create table\n3.insert into table\n4.drop table\n5.display table contents\n6.search table or search inside table\n7.help\n8.quit\n\n");
-	scanf("%d",&c);
+	cin>>option;
+	if(option.length() >1){
+		printf("\nwrong input\nexiting...\n\n");
+		exit(0);
+	}else{
+		if(option[0] > 48 && option[0]<58){
+			return option[0]-48;
+		}
+		else{
+			printf("\nwrong input\nexiting...\n\n");
+			exit(0);
+		}
+	}
+}
+
+//take input option and perform operation
+void input(){
+	int c = take_input_option();
 	while(c<9 && c>0){
 		switch(c){
 			case 1:
@@ -74,11 +87,7 @@ void input(){
 				printf("\nplease choose a correct option\n");
 				break;
 		}
-	    //system("clear");
-		printf("\n\n======================================================================================================\n\n");
-		printf("\nselect the query to implement\n");
-		printf("\n1.show all tables in database\n2.create table\n3.insert into table\n4.drop table\n5.display table contents\n6.search table or search inside table\n7.help\n8.quit\n\n");
-		scanf("%d",&c);
+		c = take_input_option();
 	}
 }
 
