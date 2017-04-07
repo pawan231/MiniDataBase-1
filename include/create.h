@@ -18,6 +18,12 @@ int record_size(table *temp){
 	}
 	return size;
 }
+/*
+//check if entered column details are correct
+int verify_input(char col_name[],int type,int size){
+
+}
+*/
 table * create_table(char name[],int count){
 	table *toreturn = new table();
 	table *temp=new table();
@@ -31,9 +37,44 @@ table * create_table(char name[],int count){
 
 	//enter the data for columns of table
 	int i=0;
-	cout<<"Enter column name,Data type(1.int 2.varchar) and max size of column\n";
+	cout<<"Enter column name,Data type(1.int 2.varchar) and max size(max allowed int=6,char=20) of column\n";
 	for(i=0;i<count;i++){
-		cin>>temp->col[i].col_name>>temp->col[i].type>>temp->col[i].size;
+		string type;
+		string size;
+		cin>>temp->col[i].col_name>>type>>size;
+
+		//check if entered datatype no. is correct
+		if(type.length()>1){
+			printf("\nwrong input(datatype should be (1=int or 2=varchar))\nexiting...\n\n");
+			printf("-------------------------------------------------------------------------\n");
+			return NULL;
+		}else{
+			if(type[0] == 49 || type[0] == 50){
+				temp->col[i].type = type[0]-48;
+			}else{
+				printf("\nwrong input(datatype should be (1=int or 2=varchar))\nexiting...\n\n");
+				printf("-------------------------------------------------------------------------\n");
+				return NULL;
+			}
+		}
+		//check size input;
+		if(size.length() > 2){
+			printf("\nwrong input\nmax size(max allowed int=6,char=20), exiting...\n");
+			printf("---------------------------------------------------------------------\n");
+			return NULL;
+		}else{
+			if(size[0] > 48 && size[0] < 58){
+				if(size.length() == 1){
+					temp->col[i].size = size[0] -48;
+				}else if(size.length() == 2){
+					temp->col[i].size = (size[0] - 48)*10 + (size[1] - 48);
+				}else{
+					printf("\nwrong input\nmax size(max allowed int=6,char=20), exiting...\n");
+					printf("---------------------------------------------------------------------\n");
+					return NULL;
+				}
+			}
+		}
 	}
 	if(i<count){
 		printf("\n\tYou have not entered all details of columns\n\n");
@@ -68,6 +109,7 @@ void create(){
 	cin>>count;
 	table *temp;
 	temp=create_table(name,count);
+	if(temp != NULL){
 	//calculate the size of the block
 		temp->size=record_size(temp);
 		if(temp!=NULL){
@@ -85,11 +127,13 @@ void create(){
 		fprintf(fp,"%s\n",name);
 		fclose(fp);
 		free(name);
-	}
-		else
-		 {
+	}else{
 		      printf("create_table inside CREATE function returned NULL\n");
 		       // return 1;
 		 }
+	 }else{
+		 //printf("\nwrong input\nexiting...\n\n");
+		 return;
+	 }
 
 }

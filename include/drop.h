@@ -19,6 +19,7 @@ void drop(){
 		sprintf(temp, "grep -v \"%s\" ./table/table_list > ./table/temp ; mv ./table/temp ./table/table_list", tab);
         system(temp);
         printf("\n%s deleted\n\n",temp1);
+		printf("-------------------------------");
 	}
 	else{
 		printf("\nerror\nexiting...\n\n");
