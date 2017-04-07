@@ -18,12 +18,13 @@ int record_size(table *temp){
 	}
 	return size;
 }
-/*
-//check if entered column details are correct
-int verify_input(char col_name[],int type,int size){
 
-}
-*/
+//verify input
+/*
+void verify_input_size_and_type(string type, string size){
+
+}*/
+
 table * create_table(char name[],int count){
 	table *toreturn = new table();
 	table *temp=new table();
@@ -37,12 +38,12 @@ table * create_table(char name[],int count){
 
 	//enter the data for columns of table
 	int i=0;
-	cout<<"Enter column name,Data type(1.int 2.varchar) and max size(max allowed int=6,char=20) of column\n";
+	cout<<"Enter column name,Data type(1.int 2.varchar) and max size(max allowed int=6,char=99) of column\n";
 	for(i=0;i<count;i++){
 		string type;
 		string size;
+		//verify_input_size_and_type(type,size);
 		cin>>temp->col[i].col_name>>type>>size;
-
 		//check if entered datatype no. is correct
 		if(type.length()>1){
 			printf("\nwrong input(datatype should be (1=int or 2=varchar))\nexiting...\n\n");
@@ -59,19 +60,35 @@ table * create_table(char name[],int count){
 		}
 		//check size input;
 		if(size.length() > 2){
-			printf("\nwrong input\nmax size(max allowed int=6,char=20), exiting...\n");
+			printf("\nwrong input\nmax size(max allowed int=6,char=99), exiting...\n");
 			printf("---------------------------------------------------------------------\n");
 			return NULL;
 		}else{
-			if(size[0] > 48 && size[0] < 58){
-				if(size.length() == 1){
-					temp->col[i].size = size[0] -48;
-				}else if(size.length() == 2){
-					temp->col[i].size = (size[0] - 48)*10 + (size[1] - 48);
+			if(type[0] == 49){
+				if(size.length() > 1){
 				}else{
-					printf("\nwrong input\nmax size(max allowed int=6,char=20), exiting...\n");
-					printf("---------------------------------------------------------------------\n");
+					printf("\nwrong input, max size allowed for int = 6\nexiting...\n");
+					printf("--------------------------------------------------------\n");
 					return NULL;
+					if(size[0] > 48 && size[0] < 55){
+						temp->col[i].size = size[0] -48;
+					}else{
+						printf("\nwrong input, max size allowed for int = 6\nexiting...\n");
+						printf("--------------------------------------------------------\n");
+						return NULL;
+					}
+				}
+			}else if(type[0] == 50){
+				if(size[0] > 48 && size[0] < 58){
+					if(size.length() == 1){
+						temp->col[i].size = size[0] -48;
+					}else if(size.length() == 2){
+						temp->col[i].size = (size[0] - 48)*10 + (size[1] - 48);
+					}else{
+						printf("\nwrong input\nmax size(max allowed char=99), exiting...\n");
+						printf("---------------------------------------------------------------------\n");
+						return NULL;
+					}
 				}
 			}
 		}
