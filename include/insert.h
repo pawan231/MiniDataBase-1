@@ -57,11 +57,9 @@ void insert_command(char tname[],void *data[],int total){
 	for(int j=0;j<temp->count;j++){
 		if(temp->col[j].type==INT){
 			 x = *(int *)data[j];
-			 //x=10;
 			fwrite(&x,sizeof(int),1,fpr);
 		}
 		else if(temp->col[j].type==VARCHAR){
-
 			strcpy(y,(char *)data[j]);
 			fwrite(y,sizeof(char)*MAX_NAME,1,fpr);
 		}
@@ -85,17 +83,18 @@ void insert(){
 	}
 
 	else{
-		cout<<"Table exists enter data\n\n";
+		cout<<"\nTable exists enter data\n\n";
 		char dir[100];
 		strcpy(dir,"./table/");
 		strcat(dir,tab);
 		strcat(dir,"/met");
      	table inp1;
 		int count;
+		//read column details from file;
 		FILE *fp = open_file(tab, const_cast<char*>("r"));
 		int i=0;
 		while(fread(&inp1,sizeof(table),1,fp)){
-			printf("\n------------------------------------\n");
+			printf("------------------------------------\n");
 			cout<<"\ninsert the following details ::\n";
 			printf("\n------------------------------------\n");
 			count=inp1.count;
@@ -106,7 +105,6 @@ void insert(){
 		}
 		printf("\n------------------------------------\n");
 		//enter data;
-		int x;
 		char var[MAX_NAME+1];
 		void * data[MAX_ATTR];
 		//void *data1[MAX_ATTR];
@@ -115,48 +113,45 @@ void insert(){
 		int size=0;
 		int total=0;
 		for(int i=0;i<count;i++){
-		if(inp1.col[i].type==INT){
-			data[i] =(int*) malloc(sizeof(int));
-			//data1[i] =(int*) malloc(sizeof(int));
-			total+=sizeof(int);
-			int flag=1;
-			while(flag){
-			cin>>(x);
-			//check the digit count of entered no.
-			int temp=x;
-			int digit=0;
-			while(temp){
-				temp=temp/10;
-				digit++;
+			if(inp1.col[i].type==INT){
+				data[i] =(int*) malloc(sizeof(int));
+				total+=sizeof(int);
+				string inp_int;
+				cin>>inp_int;
+				if(inp_int.length() > (unsigned)inp1.col[i].size){
+					printf("\nwrong input, size <= %d\nexiting...\n",inp1.col[i].size);
+					return;
+				}else{
+					//verify if entered input is integer and not a string;
+					int num = 0;
+					int factor_10 = 1;
+					for(int j=inp_int.length()-1;j>=0;j--){
+						if(inp_int[j] < 48 || inp_int[j] > 57){
+							num += (inp_int[j] - 48)*factor_10;
+							factor_10 = factor_10 * 10;
+							printf("\nwrong input, input should be integer\nexiting...\n");
+							return;
+						}
+					}
+					*((int*)data[i])=num;
+				}
+				size++;
+			}else if(inp1.col[i].type==VARCHAR){
+				//cout<<"inside varchar\n";
+				data[i] = malloc(sizeof(char) * (MAX_NAME + 1));
+				int flag=1;
+				while(flag){
+					cin>>var;
+					total+=sizeof(char) * (MAX_NAME + 1);
+					if(strlen(var)>(unsigned int)inp1.col[i].size){
+						cout<<"error\nEntered size of string is greater than specified \n";
+					}else flag=0;
+				}
+				strcpy((char*)(data[i]),var);
+				//cout<<(char *)data[1]<<endl;
+				size++;
 			}
-			if(digit>inp1.col[i].size){
-				cout<<"error\nEntered no. has greater size than specified\n";
-			}
-			else flag=0;
-			}
-			*((int*)data[i])=x;
-			//cout<<"interger input\n";
-			size++;
 		}
-		else if(inp1.col[i].type==VARCHAR){
-			//cout<<"inside varchar\n";
-			data[i] = malloc(sizeof(char) * (MAX_NAME + 1));
-			//data1[i] = malloc(sizeof(char) * (MAX_NAME + 1));
-			int flag=1;
-			while(flag){
-			cin>>var;
-			//col[i]=2;
-			total+=sizeof(char) * (MAX_NAME + 1);
-			if(strlen(var)>(unsigned int)inp1.col[i].size){
-				cout<<"error\nEntered size of string is greater than specified \n";
-			}
-			else flag=0;
-			}
-			strcpy((char*)(data[i]),var);
-			//cout<<(char *)data[1]<<endl;
-			size++;
-		}
-	}
 		insert_command(tab,data,total);
 	}
 	free(tab);

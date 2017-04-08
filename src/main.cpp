@@ -17,7 +17,7 @@
 using namespace std;
 
 void help(){
-	printf("\n\n\nWELCOME TO THE myDB\n\n"
+	printf("\n\n\nWELCOME TO myDB\n\n"
 			"myDB is a simple database design engine in which you can implement basic queries.\n\nQUERIES SUPPORTED ARE::"
 			"\n1.create a new table\n2.insert data into existing table\n3.drop table\n4.search in the table\n\n"
 			"1.For creating table \na>enter the table name\nb>enter no. of columns\nc>enter col name,datatype(1.INT\t2.VARCHAR"
