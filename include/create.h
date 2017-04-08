@@ -60,20 +60,20 @@ table * create_table(char name[],int count){
 		}
 		//check size input;
 		if(size.length() > 2){
-			printf("\nwrong input\nmax size(max allowed int=6,char=99), exiting...\n");
+			printf("\n123wrong input\nmax size(max allowed int=6,char=99), exiting...\n");
 			printf("---------------------------------------------------------------------\n");
 			return NULL;
 		}else{
 			if(type[0] == 49){
 				if(size.length() > 1){
-				}else{
-					printf("\nwrong input, max size allowed for int = 6\nexiting...\n");
+					printf("\n124wrong input, max size allowed for int = 6\nexiting...\n");
 					printf("--------------------------------------------------------\n");
 					return NULL;
+				}else{
 					if(size[0] > 48 && size[0] < 55){
 						temp->col[i].size = size[0] -48;
 					}else{
-						printf("\nwrong input, max size allowed for int = 6\nexiting...\n");
+						printf("\n125wrong input, max size allowed for int = 6\nexiting...\n");
 						printf("--------------------------------------------------------\n");
 						return NULL;
 					}

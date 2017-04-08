@@ -127,10 +127,11 @@ void insert(){
 					int factor_10 = 1;
 					for(int j=inp_int.length()-1;j>=0;j--){
 						if(inp_int[j] < 48 || inp_int[j] > 57){
-							num += (inp_int[j] - 48)*factor_10;
-							factor_10 = factor_10 * 10;
 							printf("\nwrong input, input should be integer\nexiting...\n");
 							return;
+						}else{
+							num += (inp_int[j] - 48)*factor_10;
+							factor_10 = factor_10 * 10;
 						}
 					}
 					*((int*)data[i])=num;
